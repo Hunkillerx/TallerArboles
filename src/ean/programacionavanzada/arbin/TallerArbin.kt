@@ -107,8 +107,18 @@ fun <T> nivelElementoArbol(a: IBinTree<T>, elem: T): Int {
 /**
  *  Calcular cuantas veces aparece un elemento en un arbol
  */
-fun <T> contarNumVecesApareceElemento(a: IBinTree<T>, e: T): Int =
-        TODO()
+fun <T> contarNumVecesApareceElemento(a: IBinTree<T>, e: T): Int{
+    var bandera = 0
+    if (a.isEmpty){
+        0
+    }else if (a.root == e) {
+        bandera = 1
+    }else{
+        bandera += contarNumVecesApareceElemento(a.left,e)
+        bandera += contarNumVecesApareceElemento(a.right,e)
+    }
+    return bandera
+}
 
 /**
  * Calcula el menor entre 3 numeros
@@ -124,8 +134,24 @@ fun menorArbol(arbol: IBinTree<Int>): Int =
 /**
  * Retorna el elemento que es padre del elemento e. Retorna null si no existe tal padre
  */
-fun <T> padre(a: IBinTree<T>, e: T): T? =
-        TODO("Completar")
+fun <T> padre(a: IBinTree<T>, e: T): T? {
+    var bandera:T? = null
+    if (a.isEmpty || a.root==e) {
+        bandera = null
+    }else if(a.left.isEmpty || a.left.root == e){
+         bandera = a.root
+    }else if (a.right.isEmpty || a.right.root == e){
+         bandera = a.root
+    }else{
+        if (estaArbin(a.left,e)){
+            bandera = padre(a.left,e)
+        }else if (estaArbin(a.right,e)){
+            bandera = padre(a.right,e)
+        }
+    }
+    return bandera
+}
+
 
 /**
  * Retorna el elemento que es hermano del elemento e. Retorna null si no tiene hermano

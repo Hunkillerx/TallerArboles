@@ -119,8 +119,7 @@ internal class PruebasTallerArbin {
     }
     @Test
     fun probarPeso() {
-        assertEquals(11, peso(arbol2
-        ))
+        assertEquals(14, peso(arbol2))
     }
 
     @Test
