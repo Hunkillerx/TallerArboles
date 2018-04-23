@@ -124,6 +124,10 @@ internal class PruebasTallerArbin {
     }
 
     @Test
+    fun probarNivelElemArbol(){
+        assertEquals(4, nivelElementoArbol(arbol2,10))
+    }
+    @Test
     fun probarContarHojas() {
         assertEquals(6, contarHojas(arbol2))
     }
@@ -153,6 +157,16 @@ internal class PruebasTallerArbin {
     @Test
     fun pruebaInorden(){
         inorden(arbol2)
+    }
+
+    @Test
+    fun pruebaPreorden(){
+        preorden(arbol2)
+    }
+
+    @Test
+    fun pruebaPostorden(){
+        postorden(arbol2)
     }
 }
 
